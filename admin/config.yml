@@ -1,7 +1,6 @@
-# ⚠️ ONE THING TO EDIT: replace YOUR-GITHUB-USERNAME below with your actual GitHub username.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/whisked-away-site
+  repo: ruhtusri/Overbrewed-
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
