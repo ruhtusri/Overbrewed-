@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+---
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">matcha · musings · moving home</p>
+    <h1>Whisked Away</h1>
+    <p class="sub">Notes from a chronic overthinker — on matcha, books, long-distance love, being one of three women in the room, and moving 8,000 km back home to India.</p>
+    <div class="hero-tags">
+      <span>🍵 matcha logs</span>
+      <span>🌀 random thoughts</span>
+      <span>📚 currently reading</span>
+      <span>💌 long distance</span>
+      <span>🇮🇳 moving back</span>
+    </div>
+  </div>
+</header>
+
+<section id="posts">
+  <div class="wrap">
+    {% set featured = collections.posts | first %}
+    {% if featured %}
+    <div class="featured">
+      <div class="featured-art">
+        {% if featured.data.cover %}<img src="{{ featured.data.cover }}" alt="{{ featured.data.title }}">{% else %}"{{ featured.data.emoji or '🍵' }} the whisk always knows"{% endif %}
+      </div>
+      <div>
+        <span class="cat">{{ featured.data.category }}</span>
+        <h3><a href="{{ featured.url }}">{{ featured.data.title }}</a></h3>
+        <p>{{ featured.data.description }}</p>
+        <p class="meta">{{ featured.date | niceDate }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="sec-head">
+      <h2>Latest Posts</h2>
+    </div>
+    <div class="grid">
+      {% for post in collections.posts %}
+      {% if loop.index > 1 %}
+      <article class="card">
+        <a href="{{ post.url }}"><div class="card-art">
+          {% if post.data.cover %}<img src="{{ post.data.cover }}" alt="{{ post.data.title }}">{% else %}{{ post.data.emoji or '🍵' }}{% endif %}
+        </div></a>
+        <span class="cat">{{ post.data.category }}</span>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description }}</p>
+        <p class="meta">{{ post.date | niceDate }}</p>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--matcha-mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="portrait">"powered by matcha<br>& mild chaos"</div>
+      <div>
+        <h2>Hi, I'm Ruthu 🍃</h2>
+        <p>I spent four years abroad after undergrad, collected a degree, a long-distance boyfriend, and a matcha dependency — then packed it all up (minus the boyfriend, he's still in a different time zone, tragically) and moved back to India.</p>
+        <p>By day I work in a field where I'm usually the only woman in the room. By night I read too much, think about <em>deeply unserious questions</em> with complete seriousness, and whisk green powder into things.</p>
+        <p>If you've ever moved home and felt like a tourist in your own country, loved someone across an ocean, or wondered why we park in driveways and drive on parkways — you'll fit right in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="wrap">
+    <div class="newsletter">
+      <h2>The Sunday Steep</h2>
+      <p>One email a week: what I wrote, what I read, one random thought, and whatever matcha I'm currently obsessed with. Free, forever-ish.</p>
+      <form class="nl-form" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:#fff;font-size:1rem\'>🍵 You\'re in! Check your inbox on Sunday.</p>'">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Steep me in</button>
+      </form>
+      <p class="nl-note">No spam. Unsubscribe anytime (but why would you).</p>
+    </div>
+  </div>
+</section>
+
+<section id="support" class="support-strip">
+  <h2>Enjoying the chaos?</h2>
+  <p>This blog runs on matcha and stubbornness. If a post made you smile, you can fuel the next one.</p>
+  <a href="#" class="btn">☕ Buy me a matcha</a>
+  <a href="#newsletter" class="btn ghost">Join the newsletter</a>
+</section>

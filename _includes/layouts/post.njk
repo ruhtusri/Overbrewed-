@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+<header class="post-header">
+  <div class="wrap">
+    <a href="/" class="back-link">← back home</a>
+    <p class="cat" style="margin-top:20px">{{ category }}</p>
+    <h1>{{ title }}</h1>
+    <p class="meta">{{ page.date | niceDate }}</p>
+  </div>
+</header>
+
+{% if cover %}
+<div class="post-cover"><img src="{{ cover }}" alt="{{ title }}"></div>
+{% endif %}
+
+<article class="post-body">
+  {{ content | safe }}
+</article>
+
+<section id="support" class="support-strip" style="border-top:1px solid var(--line)">
+  <h2>Enjoyed this?</h2>
+  <p>This blog runs on matcha and stubbornness. Fuel the next post.</p>
+  <a href="#" class="btn">☕ Buy me a matcha</a>
+  <a href="/#newsletter" class="btn ghost">Join the newsletter</a>
+</section>

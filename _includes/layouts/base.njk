@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} — {% endif %}Whisked & Away</title>
+<meta name="description" content="{{ description or 'A blog about matcha, overthinking, books, long-distance love, and moving back to India.' }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">whisked <span>&</span> away</a>
+    <div class="nav-links">
+      <a href="/#posts">Posts</a>
+      <a href="/#about">About</a>
+      <a href="/#newsletter">Newsletter</a>
+      <a href="/#support" class="support">Support ♡</a>
+    </div>
+  </div>
+</nav>
+
+{{ content | safe }}
+
+<footer>
+  <span class="logo">whisked <span style="color:var(--matcha)">&</span> away</span>
+  <p>© 2026 Whisked & Away · Made with 🍵 in India · <a href="#" style="text-decoration:underline">Instagram</a> · <a href="#" style="text-decoration:underline">Pinterest</a></p>
+</footer>
+
+</body>
+</html>
